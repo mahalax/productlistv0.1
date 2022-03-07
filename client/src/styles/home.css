@@ -1,0 +1,28 @@
+
+.cardstyle{
+    width: auto;
+    height: auto;
+    margin: 20px;
+    border-color: black;
+    
+}
+
+.card-imagestyle{
+    height:150px;
+    padding:10px;
+}
+.form_field{
+    margin: 10px;
+}
+.productlist{
+    padding:20px;
+    padding-left: 30px;
+    background-color: #292b40;
+}
+.search-fields{
+    border-color: black;
+    background-color: bisque; 
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding:20px;
+}

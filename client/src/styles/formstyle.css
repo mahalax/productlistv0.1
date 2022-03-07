@@ -1,0 +1,48 @@
+.signInForm{
+    background-color: #292b40;
+    padding: 20px;
+    color:white;
+    align-items: center;
+    margin: auto;  
+}
+.vertical-center-row {
+   margin:auto;
+  padding:63px;
+  text-align:center;
+}
+h3{
+  text-align: center;
+}
+.linkto span{
+    color: #ffc220 !important;
+}
+.linkto{
+    text-decoration: none!important;
+    color: white!important;
+
+}
+
+.btn_color{
+    background-color: #ffc220!important;
+    border-radius: 30px;
+    padding: 5px 15px;
+    border:none;
+    margin: 10px 5px 0px 5px;
+}
+.btn_align{
+ align-items: center;
+ margin-bottom: 15px;
+}
+
+/* Error messages */
+.rt-sign-err {
+    font-size: 12px;
+    color: #ff8e8e;
+} /**/
+.Form_center{
+    margin: auto!important;
+}
+.telephone_no{
+    margin-left: -3px!important;
+    margin-right: -2px!important;
+}

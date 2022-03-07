@@ -1,0 +1,48 @@
+.active,h3{
+    color: #ffc220;
+}
+
+.menu .navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important;
+  }
+  /* banner */
+.menu {
+    background-color: #292b40;
+    border-bottom: 1px solid#ffc220;
+  }
+  .basic-navbar-nav{
+    background-color: #292b40;
+  }
+  .float-right{
+      position :absolute;
+      margin: auto;
+      right:0;
+      background-color: #292b40!important;
+      padding-right: 10px;
+  }
+
+.nav-item .navlink{
+    text-decoration: none!important;
+}
+    .menu .navbar-light .navbar-nav .nav-link {
+        color: #b5b5b5 !important;
+        font-size: 18px;
+        font-family: "Conv_SanFranciscoText-Semibold";
+        position: relative;
+        padding-left: 16px!important;
+      }
+      .menu .navbar-light .navbar-nav .nav-link:hover,
+      .menu .navbar-light .navbar-nav .active .nav-link {
+        color: #fff !important;
+      }
+      .menu .navbar-light .navbar-nav .nav-link:hover::after,
+      .menu .navbar-light .navbar-nav .active .nav-link::after {
+        width: 27px;
+        height: 2px;
+        background: #ffc220;
+        content: "";
+        display: block;
+        left: 29%;
+        position: absolute;
+        top: 45px;
+      }

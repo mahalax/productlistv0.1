@@ -9,8 +9,10 @@ import tools from "../helpers/tools";
 import "../styles/home.css"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Cart from '../components/Cart';
 
-export default function SearchComponent() {
+export default function Home(props) {
+    const { onAdd, onRemove, cartItems,handleClearcart } = props
     const records = (useSelector((state) => state.products.response))
     const [SearchBy, setSearchBy] = useState("")
     const [name, setName] = useState("")
@@ -55,15 +57,17 @@ export default function SearchComponent() {
 
     }
 
+
+
     return (
         <div className='container'>
             <div className='search-fields'>
                 <h4 className='text-center'>Search by Category</h4>
-                Product Name :<input type="text" className="form_field" value={name} onChange={(e) => setName(e.target.value)} />
-
-                Min Price :<input type="number" className="form_field" value={minPrice} onChange={(e) => setMinPrice(e.target.value)} />
-                Max Price :<input type="number" className="form_field" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} />
-
+                <div className='row'>
+                <span className='col-sm-12 col-md-4'>Item Name :<input type="text" className="form_field " value={name} onChange={(e) => setName(e.target.value)} /></span>
+                <span className='col-sm-12 col-md-4 '>Min Price  :<input type="number" className="form_field " value={minPrice} onChange={(e) => setMinPrice(e.target.value)} /> </span>
+                <span className='col-sm-12 col-md-4'>Max Price :<input type="number" className="form_field " value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} /></span>
+                </div>
                 <div className="form-group form-check">
                     <input
                         type="checkbox"
@@ -83,30 +87,45 @@ export default function SearchComponent() {
                 </div>
 
                 <div className='row'>
-                    <div className='col-10'><button className='btn btn-secondary form_field' type="submit" onClick={(e) => onSubmit(e)} >Search </button></div>
-                    <div className='col-2 '><button className='btn_color' type="submit" onClick={(e) => onClear(e)} >View All Products </button></div>
+                    <div className='col-md-10 col-sm-12'><button className='btn btn-secondary form_field' type="submit" onClick={(e) => onSubmit(e)} >Search </button></div>
+                    <div className='col-md-2 col-sm-12 '><button className='btn_color' type="submit" onClick={(e) => onClear(e)} >View All Products </button></div>
                 </div>
             </div>
             {records?.length === 0 && <div>no products by your search</div>}
-            {(records && records.length>0) && 
-            <div className="d-flex flex-wrap productlist">
-               
-                        {records?.map((item, index) => (
-                            <div className="card cardstyle" key={index}>
-                                <img src={item.image} className="card-img-top card-imagestyle" alt="product" />
-                                <div className="card-body">
-                                    <p className="card-text">Product Name:{item.name} </p>
-                                    <p className="card-text">Price:{item.Price} AED</p>
-                                    <p className="card-text">Discount Price:{item.DiscountPrice} AED</p>
-                                    {/**<p className="card-text">Is Expire ? :{item.isExpire===true?"yes":"No"}</p>**/}
-                                    <p className="card-text">Expiry Date :{item.isExpire === false ? "No expiry" : (item.ExpiryDate != null || item.ExpiryDate !== "") ? tools.utcToLocal(item.ExpiryDate) : "no Expiry"}</p>
-                                </div>
-                            </div>
+            <div className='row'>
+                {(records && records.length > 0) &&
+                    <div className='col-md-8'>
+                        <div className="d-flex flex-wrap productlist ">
 
-                        ))}
-                  
+                            {records?.map((item, index) => (
+                                <div className="card col-sm-12 col-md-3 margin_10"  key={index}>
+                                    <img src={item.image} className="card-img-top card-imagestyle" alt="product" />
+                                    <div className="card-body">
+                                        <p className="card-text">Product Name:{item.name} </p>
+                                        <p className="card-text">Price:{item.Price} AED</p>
+                                        <p className="card-text">Discount Price:{item.DiscountPrice} AED</p>
+                                        {/**<p className="card-text">Is Expire ? :{item.isExpire===true?"yes":"No"}</p>**/}
+                                        <p className="card-text">Expiry Date :{item.isExpire === false ? "No expiry" : (item.ExpiryDate != null || item.ExpiryDate !== "") ? tools.utcToLocal(item.ExpiryDate) : "no Expiry"}</p>
+                                    </div>
+                                    <div>
+                                        <button className='btn btn-secondary form_field' onClick={() => onAdd(item)}>Add To Cart</button>
+                                    </div>
+                                </div>
+
+                            ))}
+
+                        </div>
+                    </div>
+                }
+                <div className='col-md-4 cartsection'>
+                    <Cart
+                        cartItems={cartItems}
+                        onAdd={onAdd}
+                        onRemove={onRemove}
+                        handleClearcart={handleClearcart}
+                    />
+                </div>
             </div>
-            }
             <ToastContainer />
         </div>
     )

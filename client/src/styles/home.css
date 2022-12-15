@@ -1,6 +1,6 @@
 
 .cardstyle{
-    width: auto;
+    width: 200px;
     height: auto;
     margin: 20px;
     border-color: black;
@@ -19,10 +19,22 @@
     padding-left: 30px;
     background-color: #292b40;
 }
-.search-fields{
+.search-fields,.cartsection{
     border-color: black;
     background-color: bisque; 
+    padding:20px;
+}
+.search-fields{
     margin-top: 20px;
     margin-bottom: 10px;
-    padding:20px;
+}
+.cartsection{
+    max-height:700px;
+    overflow: auto;
+}
+.pb_2{
+padding-bottom: 2px;
+}
+.margin_10{
+    margin: 10px;
 }

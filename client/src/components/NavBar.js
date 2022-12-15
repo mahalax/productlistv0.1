@@ -6,8 +6,11 @@ import "../styles/Navbar.css"
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { useDispatch } from 'react-redux';
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
 const NavHeader = (props) => {
-  const { logout } = props
+  const { logout,countCartItems } = props
   const history = useHistory()
   const dispatch = useDispatch();
   return (
@@ -46,11 +49,21 @@ const NavHeader = (props) => {
                 </Link>
               </li>
               <li className="nav-item" >
+                <Link to="/cart" className="navlink">
+                  <span className={history.location.pathname === "/cart" ? "nav-link active" : "nav-link"}
+                    ><Badge color="secondary" badgeContent={countCartItems ? countCartItems : "0"}>
+                    <ShoppingCartIcon />{" "}
+                  </Badge></span>
+                </Link>
+              </li>
+              <li className="nav-item" >
                 <Link to="/login" className="navlink">
                   <span className={history.location.pathname === "/login" ? "nav-link active" : "nav-link"}
                     onClick={() => logout()}>Logout</span>
                 </Link>
               </li>
+              
+             
             </Nav>
           }
 

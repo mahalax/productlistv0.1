@@ -61,14 +61,14 @@ export default function Home(props) {
 
     return (
         <div className='container'>
-            <div className='search-fields'>
+            <div className='row search-fields'>
                 <h4 className='text-center'>Search by Category</h4>
                 <div className='row'>
-                <span className='col-sm-12 col-md-4'>Item Name :<input type="text" className="form_field " value={name} onChange={(e) => setName(e.target.value)} /></span>
+                <span className='col-sm-12 col-md-4 '>Item Name :<input type="text" className="form_field " value={name} onChange={(e) => setName(e.target.value)} /></span>
                 <span className='col-sm-12 col-md-4 '>Min Price  :<input type="number" className="form_field " value={minPrice} onChange={(e) => setMinPrice(e.target.value)} /> </span>
                 <span className='col-sm-12 col-md-4'>Max Price :<input type="number" className="form_field " value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} /></span>
                 </div>
-                <div className="form-group form-check">
+                <div className="form-group form-check ml_10">
                     <input
                         type="checkbox"
                         className="form-check-input"
@@ -98,7 +98,7 @@ export default function Home(props) {
                         <div className="d-flex flex-wrap productlist ">
 
                             {records?.map((item, index) => (
-                                <div className="card col-sm-12 col-md-3 margin_10"  key={index}>
+                                <div className="card cardstyle col-sm-11 col-md-3"  key={index}>
                                     <img src={item.image} className="card-img-top card-imagestyle" alt="product" />
                                     <div className="card-body">
                                         <p className="card-text">Product Name:{item.name} </p>
